@@ -49,6 +49,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
 # Helper function to encode image
 def encode_image(uploaded_file):
     """Encode uploaded file to base64"""
+    uploaded_file.seek(0)  # Reset file position to beginning
     bytes_data = uploaded_file.read()
     image_data = base64.standard_b64encode(bytes_data).decode("utf-8")
     
@@ -359,13 +360,16 @@ Ensure cultural appropriateness and natural phrasing for each language."""
                         
                         st.success("✅ Multilingual Descriptions Generated!")
                         
+                        # Normalize keys to lowercase for matching
+                        normalized_data = {k.lower(): v for k, v in multilingual_data.items()}
+                        
                         # Display each language
                         for lang_code in selected_codes:
-                            if lang_code in multilingual_data:
+                            if lang_code.lower() in normalized_data:
                                 lang_name = [k for k, v in language_codes.items() if v == lang_code][0]
                                 
                                 with st.expander(f"🌐 {lang_name} ({lang_code.upper()})", expanded=True):
-                                    data = multilingual_data[lang_code]
+                                    data = normalized_data[lang_code.lower()]
                                     
                                     if "title" in data:
                                         st.markdown(f"**Title:** {data['title']}")
