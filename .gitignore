@@ -8,6 +8,7 @@ env/
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 *.so
 .Python
 build/
@@ -30,6 +31,10 @@ wheels/
 processed/
 *.json
 !package.json
+
+# Images (uncomment if you don't want to track sample images)
+# *.jpg
+# *.png
 
 # IDE
 .idea/
