@@ -360,7 +360,7 @@ Ensure cultural appropriateness and natural phrasing for each language."""
                         
                         st.success("✅ Multilingual Descriptions Generated!")
                         
-                        # Normalize keys to lowercase for matching
+                        # Normalize language code keys to lowercase
                         normalized_data = {k.lower(): v for k, v in multilingual_data.items()}
                         
                         # Display each language
@@ -371,15 +371,24 @@ Ensure cultural appropriateness and natural phrasing for each language."""
                                 with st.expander(f"🌐 {lang_name} ({lang_code.upper()})", expanded=True):
                                     data = normalized_data[lang_code.lower()]
                                     
-                                    if "title" in data:
-                                        st.markdown(f"**Title:** {data['title']}")
+                                    # Normalize inner keys to lowercase for matching
+                                    data_lower = {k.lower(): v for k, v in data.items()}
                                     
-                                    if "description" in data:
-                                        st.markdown(f"**Description:** {data['description']}")
+                                    if "title" in data_lower:
+                                        st.markdown(f"**Title:** {data_lower['title']}")
                                     
-                                    if "features" in data:
+                                    if "description" in data_lower:
+                                        st.markdown(f"**Description:** {data_lower['description']}")
+                                    
+                                    if "features" in data_lower:
                                         st.markdown("**Features:**")
-                                        for feature in data['features']:
+                                        for feature in data_lower['features']:
+                                            st.markdown(f"- {feature}")
+                                    
+                                    # Also check for key_features (alternative name)
+                                    if "key_features" in data_lower:
+                                        st.markdown("**Features:**")
+                                        for feature in data_lower['key_features']:
                                             st.markdown(f"- {feature}")
                         
                         # Download button
