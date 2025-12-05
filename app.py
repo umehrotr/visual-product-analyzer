@@ -154,22 +154,23 @@ st.markdown("""
     /* Tab styling */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
-        background: rgba(30, 30, 46, 0.5);
+        background: #1e1e2e !important;
         padding: 0.5rem;
         border-radius: 12px;
+        border: 1px solid rgba(167, 139, 250, 0.3);
     }
     
     .stTabs [data-baseweb="tab"] {
-        background: transparent;
+        background: transparent !important;
         border-radius: 8px;
-        color: #94a3b8;
+        color: #e2e8f0 !important;
         font-weight: 500;
         padding: 0.75rem 1.5rem;
     }
     
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
     }
     
     /* Button styling */
@@ -202,23 +203,70 @@ st.markdown("""
     
     /* File uploader */
     .stFileUploader > div > div {
-        background: rgba(30, 30, 46, 0.8);
-        border: 2px dashed rgba(167, 139, 250, 0.4);
+        background: #1e1e2e !important;
+        border: 2px dashed rgba(167, 139, 250, 0.5) !important;
         border-radius: 12px;
         padding: 2rem;
     }
     
     .stFileUploader > div > div:hover {
-        border-color: #667eea;
-        background: rgba(102, 126, 234, 0.1);
+        border-color: #667eea !important;
+        background: rgba(102, 126, 234, 0.15) !important;
+    }
+    
+    .stFileUploader label, .stFileUploader span, .stFileUploader p {
+        color: #e2e8f0 !important;
     }
     
     /* Expander styling */
     .streamlit-expanderHeader {
-        background: linear-gradient(145deg, #1e293b, #0f172a);
-        border-radius: 10px;
+        background: #1e1e2e !important;
+        border: 1px solid rgba(167, 139, 250, 0.3) !important;
+        border-radius: 10px !important;
         font-weight: 600;
-        color: #a78bfa;
+        color: #a78bfa !important;
+    }
+    
+    .streamlit-expanderContent {
+        background: #1e1e2e !important;
+        border: 1px solid rgba(167, 139, 250, 0.2) !important;
+        border-top: none !important;
+        border-radius: 0 0 10px 10px !important;
+    }
+    
+    /* Text area styling */
+    .stTextArea textarea {
+        background: #1e1e2e !important;
+        border: 2px solid rgba(167, 139, 250, 0.4) !important;
+        border-radius: 12px !important;
+        color: #f1f5f9 !important;
+    }
+    
+    .stTextArea textarea::placeholder {
+        color: #94a3b8 !important;
+    }
+    
+    /* Text input */
+    .stTextInput input {
+        background: #1e1e2e !important;
+        border: 2px solid rgba(167, 139, 250, 0.4) !important;
+        border-radius: 12px !important;
+        color: #f1f5f9 !important;
+    }
+    
+    .stTextInput input::placeholder {
+        color: #94a3b8 !important;
+    }
+    
+    /* Multiselect */
+    .stMultiSelect > div {
+        background: #1e1e2e !important;
+        border: 2px solid rgba(167, 139, 250, 0.4) !important;
+        border-radius: 12px !important;
+    }
+    
+    .stMultiSelect span {
+        color: #f1f5f9 !important;
     }
     
     /* Success/Error messages */
